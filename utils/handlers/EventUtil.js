@@ -9,8 +9,9 @@ module.exports = async client => {
         const event  = require(eventFile); // retourne le chemin exact de l'évenement
 
         // logs s'il y a une erreur avec le fichier exact
-        if(!eventList.includes(event.name) || !event.name) console.log(`Évenement non-déclenché : erreur de typo de l'event (ou pas de nom)\n Fichier - ${eventFile}`);
+        if(!eventList.includes(event.name) || !event.name) console.log(`Évenement non-chargé : erreur de typo de l'event (ou pas de nom)\n Fichier - ${eventFile}`);
 
+        console.log(`Event chargé - ${event.name}`);
         if(event.once) client.once(event.name, (... args) => event.execute(client, ...args));
         else client.on(event.name, (... args) => event.execute(client, ...args));
     });  

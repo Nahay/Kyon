@@ -2,11 +2,10 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'avatar',
-    category: 'fun',
+    category: 'user',
     usage: '-avatar, -avatar [@member]',
 	description: 'Get the avatar URL of the tagged user(s), or your own avatar.',
-    aliases: ['icon', 'pp'],
-    guildOnly: true,
+    permissions: ['SEND_MESSAGES'],
     options: [
         {
             name: "user",
@@ -26,8 +25,6 @@ module.exports = {
 			return message.channel.send({embeds: [embed]});
 		}
 		message.mentions.users.map(user => {
-            console.log(user);
-
             const embed = new MessageEmbed()
             .setTitle(`${user.username}'s Avatar`)
             .setImage(user.displayAvatarURL({ dynamic: true, size: 512 }))

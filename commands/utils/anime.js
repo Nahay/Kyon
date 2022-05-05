@@ -4,6 +4,10 @@ const axios = require('axios');
 module.exports = {
     name: 'anime',
     description: 'Finds a random anime image for your viewing pleasure.',
+    category: 'utils',
+    permissions: ['SEND_MESSAGES'],
+    ownerOnly: false,
+    usage: '-anime',
     run: async (client, message, args) => {
             const anime = await axios('https://www.reddit.com/user/emdix/m/animemes/top/.json?sort=top&t=day&limit=500').then(res => res.data.data.children);
             const img = anime[Math.floor(Math.random() * anime.length)].data;
@@ -16,7 +20,7 @@ module.exports = {
             
             message.channel.send({embeds: [embed] });
     },
-    runSlash: async (client, interaction) => {
+    runInteraction: async (client, interaction) => {
         const anime = await axios('https://www.reddit.com/user/emdix/m/animemes/top/.json?sort=top&t=day&limit=500').then(res => res.data.data.children);
         const img = anime[Math.floor(Math.random() * anime.length)].data;
         const embed = new MessageEmbed()

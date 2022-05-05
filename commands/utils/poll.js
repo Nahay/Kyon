@@ -4,6 +4,8 @@ module.exports = {
     name: "poll",
     description: "Create a poll, and start a greatful debate !!",
     usage: "-poll [question]",
+    category: 'utils',
+    permissions: ['SEND_MESSAGES'],
     options: [
         {
             name: "question",
@@ -26,7 +28,7 @@ module.exports = {
         poll.react('👍');
         poll.react('👎');
     },
-    runSlash: async (client, interaction) => {
+    runInteraction: async (client, interaction) => {
         const pollQuestion = interaction.options.getString('question');
 
         const embed = new MessageEmbed()

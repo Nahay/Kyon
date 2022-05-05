@@ -7,8 +7,10 @@ module.exports = async client => {
     // process.cwd() donne le chemin absolu
     (await pGlob(`${process.cwd()}/buttons/*/*.js`)).map(async btnFile => {
         const btn  = require(btnFile); // retourne le chemin exact de l'évenement
-        console.log(btn);
-        if(!btn.name) console.log(`Commande non-déclenchée : pas de nom et/ou description\n Fichier - ${cmdFile}`);
+
+        if(!btn.name) console.log(`Bouton non-chargé : pas de nom\n Fichier - ${btnFile}`);
+
+        console.log(`Bouton chargé - ${btn.name}`);
         client.buttons.set(btn.name, btn);
     });
 }
