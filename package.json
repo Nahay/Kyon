@@ -1,23 +1,26 @@
 {
   "name": "kyon",
   "version": "1.0.0",
-  "description": "",
+  "description": "Kyon in JS",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nahay/Kyon.git"
   },
-  "author": "",
+  "author": "Lily",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Nahay/Kyon/issues"
   },
   "homepage": "https://github.com/Nahay/Kyon#readme",
   "dependencies": {
-    "discord.js": "^13.6.0",
-    "dotenv": "^16.0.0"
+    "axios": "^0.27.2",
+    "discord.js": "13.6.0",
+    "dotenv": "16.0.0",
+    "glob": "7.2.0"
   }
 }
