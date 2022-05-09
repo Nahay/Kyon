@@ -69,7 +69,7 @@ module.exports = {
             const targetMessages = [];
 
             // filtre les messages pour avoir que ceux de l'utilisateur concerné
-            (await messages).filter(msg => {
+            (await messages).forEach(msg => {
                 if(msg.author.id == target.id && amount > i) {
                     targetMessages.push(msg);
                     i++;

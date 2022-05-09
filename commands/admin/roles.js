@@ -84,7 +84,7 @@ const notifButtons = new MessageActionRow().addComponents(
 module.exports = {
     name: 'roles',
     description: "Get roles",
-    category: 'moderation',
+    category: 'admin',
     permissions: ['ADMINISTRATOR'],
     ownerOnly: true,
     usage: '-roles',
