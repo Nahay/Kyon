@@ -89,12 +89,15 @@ module.exports = {
     ownerOnly: true,
     usage: '-roles',
     run: async (client, message, args) => {
-       await message.channel.send({content: 'Rôles de jeu (pour ping qnd on game) :', components: [gameButtons]});
-       await message.channel.send({components: [gameButtons2]});
-       await message.channel.send({content: 'Rôles tiers (genre pour ping blind test anime etc) :', components: [otherButtons]})
-       await message.channel.send({content: 'Un rôle pour être ping par moi pour des messages coolos <3 (au lieu de everyone) ', components: [notifButtons]})
+        await message.channel.send({content: 'Rôles de jeu (pour ping qnd on game) :', components: [gameButtons]});
+        await message.channel.send({components: [gameButtons2]});
+        await message.channel.send({content: 'Rôles tiers (genre pour ping blind test anime etc) :', components: [otherButtons]});
+        await message.channel.send({content: 'Un rôle pour être ping par moi pour des messages coolos <3 (au lieu de everyone) ', components: [notifButtons]});
     },
     runInteraction: async (client, interaction) => {
-        await interaction.reply({content: 'Rôles de jeu (pour ping qnd on game) :', components: [gb]});
+        await interaction.reply({content: 'Rôles de jeu (pour ping qnd on game) :', components: [gameButtons]});
+        await interaction.channel.send({components: [gameButtons2]});
+        await interaction.channel.send({content: 'Rôles tiers (genre pour ping blind test anime etc) :', components: [otherButtons]});
+        await interaction.channel.send({content: 'Un rôle pour être ping par moi pour des messages coolos <3 (au lieu de everyone) ', components: [notifButtons]});
     }
 }

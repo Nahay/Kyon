@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
     name: "poll",
     description: "Create a poll, and start a greatful debate !!",
-    usage: "-poll [question]",
+    examples: ['-poll Is Lily kind ? (obviously not)'],
     category: 'utils',
     permissions: ['SEND_MESSAGES'],
     options: [

@@ -10,12 +10,12 @@ module.exports = {
     description: "Whenever you're lost this command is for you.",
     permissions: ['SEND_MESSAGES'],
     ownerOnly: false,
-    usage: '-anime',
+    examples: '[-help]',
     run: async (client, message, args) => {
         if(!args.length) {
             const noArgsEmbed = new MessageEmbed()
             .setColor(message.member.displayHexColor)
-            .addField('Commands List', `A list of all available categories and their commands.\nFor more information about a command, type\`${prefix}help <command>\``);
+            .addField('Commands List', `A list of all available categories and their commands.\nFor more information about a command, type \`${prefix}help <command>\``);
 
             for(const category of commandFolder) {
                 noArgsEmbed.addField(
@@ -32,7 +32,7 @@ module.exports = {
         const argsEmbed = new MessageEmbed()
             .setColor(message.member.displayHexColor)
             .setTitle(`\`${cmd.name}\``)
-            .setDescription(cmd.description)
+            .setDescription(`${cmd.description} \n Example(s): ${cmd.examples.join(', ')}`)
             .setFooter({text: `Required permissions : ${cmd.permissions.join(', ')}`});
 
         return message.channel.send({embeds: [argsEmbed] });
@@ -51,12 +51,12 @@ module.exports = {
         if(!cmdName) {
             const noArgsEmbed = new MessageEmbed()
             .setColor(interaction.user.displayHexColor)
-            .addField('Commands List', `A list of all available categories and their commands.\nFor more information about a command, type\`${prefix}help <command>\``);
+            .addField('Commands List', `A list of all available categories and their commands.\nFor more information about a command, type \`${prefix}help <command>\``);
 
             for(const category of commandFolder) {
                 noArgsEmbed.addField(
                     `${category.replace(/(^\w|\s\w)/g, fl => fl.toUpperCase())}`,
-                    `${client.commands.filter(cmd => cmd.category === category.toLowerCase()).map(cmd => cmd.name).join(', ')}`
+                    `${client.commands.filter(cmd => cmd.category === category.toLowerCase()).map(cmd => cmd.name).join(', ')}\n}`
                 );
             }
             return interaction.reply({embeds: [noArgsEmbed], ephemeral: true });
@@ -68,7 +68,7 @@ module.exports = {
         const argsEmbed = new MessageEmbed()
             .setColor(interaction.user.displayHexColor)
             .setTitle(`\`${cmd.name}\``)
-            .setDescription(cmd.description)
+            .setDescription(`${cmd.description} \n Example(s): ${cmd.examples.join(', ')}`)
             .setFooter({text: `Required permissions : ${cmd.permissions.join(', ')}`});
 
         return interaction.reply({embeds: [argsEmbed], ephemeral: true });

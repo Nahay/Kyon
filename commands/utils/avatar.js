@@ -2,8 +2,10 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'avatar',
-    category: 'user',
-    usage: '-avatar, -avatar [@member]',
+    category: 'utils',
+    ownerOnly: false,
+    usage: 'avatar, avatar [@member]',
+    examples: ['-avatar', '-avatar @member'],
 	description: 'Get the avatar URL of the tagged user(s), or your own avatar.',
     permissions: ['SEND_MESSAGES'],
     options: [

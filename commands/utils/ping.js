@@ -5,7 +5,8 @@ module.exports = {
     description: "Commande ping",
     category: 'utils',
     permissions: ['SEND_MESSAGES'],
-    ownerOnly: true,
+    ownerOnly: false,
+    examples: ['-ping'],
     run: (client, message, args) => {
         const embed = new MessageEmbed()
         .setTitle('Pong !')
